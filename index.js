@@ -4,6 +4,7 @@ const app = express();
 
 const users = [
   {
+    id: 1,
     name: 'John',
     username: 'john1',
     address: 'New york',
@@ -12,6 +13,7 @@ const users = [
     dateOfBirth: '7 jan 1980',
   },
   {
+    id: 2,
     name: 'Harry',
     username: 'harry1',
     address: 'India',
@@ -20,6 +22,7 @@ const users = [
     dateOfBirth: '10 march 1989',
   },
   {
+    id: 3,
     name: 'Clay',
     username: 'clay1',
     address: 'Paris',
@@ -30,7 +33,7 @@ const users = [
 ];
 app.use(cors());
 app.get('/user', (req, res) => {
-  res.json(users);
+  res.json(users.filter((user) => Number(req.query.id) === user.id));
 });
 
 app.listen(8000, () => {
