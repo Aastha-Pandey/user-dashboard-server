@@ -1,4 +1,5 @@
 import express from 'express';
+const cors = require('cors');
 const app = express();
 
 const users = [
@@ -27,7 +28,7 @@ const users = [
     dateOfBirth: '16 july 1995',
   },
 ];
-
+app.use(cors());
 app.get('/user', (req, res) => {
   res.json(users);
 });
