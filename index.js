@@ -35,6 +35,9 @@ app.use(cors());
 app.get('/user', (req, res) => {
   res.json(users.filter((user) => Number(req.query.id) === user.id));
 });
+app.get('/alluser', (req, res) => {
+  res.json(users);
+});
 
 app.listen(8000, () => {
   console.log('listening at port 8000!');
